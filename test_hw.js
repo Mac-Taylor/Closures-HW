@@ -11,13 +11,24 @@ test('counter', function (t) {
 test('multiply', function (t){
     let m = hw.multiply(10);
     let m2 = hw.multiply(7);
-    t.deepEqual(m.times(2), 20);
-    t.deepEqual(m.times(2), 40);
-    t.deepEqual(m.times(3), 120);
-    t.deepEqual(m2.times(5), 35);
+    t.deepEqual(m(2), 20);
+    t.deepEqual(m(2), 40);
+    t.deepEqual(m(3), 120);
+    t.deepEqual(m2(5), 35);
 });
 
 test('amount', function (t) {
     let tot = hw.total(100);
+    let tot2 = hw.total(48);
     t.deepEqual(tot.discount(0.5), 50);
+    t.deepEqual(tot.discount(0.5), 50);
+    t.deepEqual(tot2.discount(0.125), 6);
+    t.deepEqual(tot2.discount(0.5), 24);
 });
+
+test('user', function (t) {
+    let person = hw.user();
+    t.deepEqual(person.setName('Mac Taylor'), true);
+    t.deepEqual(person.getName(), 'Mac Taylor');
+});
+

@@ -28,11 +28,10 @@ module.exports = {
      */
     multiply: function (val) {
 
-        return {
-            times: function (a) {
-                val = val * a;
-                return val;
-            }
+        return function (a) {
+            val = val * a;
+            return val;
+
         }
     }, // RIGHT NOW THIS ONE SEEMS TO WORK. DO NOT MESS WITH IT FOR NOW.
 
@@ -47,12 +46,19 @@ module.exports = {
      */
     total: function (amount) {
 
-        let amnt = amount;
+        /* This seems to work, I think defining 'amt' within the scope of 
+        discount() keeps discount() from affecting the amount every 
+        time it's called, but ask Luke. */
 
         return {
             discount: function (nmbr) {
+                /*let amnt = amount;
                 amnt = amnt * nmbr;
-                return amnt;
+                return amnt; */ // don't even need to do all this, can just return the
+                // new number, and it won't affect the amount because
+                // not calling a function.
+
+                return amount * nmbr;
             },
         }
     },
@@ -67,7 +73,23 @@ module.exports = {
      *  user.setName('123 hi'); // return false
      *  user.getName(); // return 'Francis Bacon'
      */
-    user: function () { },
+    user: function () {
+
+        return {
+            setName: function (prsn) {
+                let regex = /^[A-Za-z ]+$/;
+                if (regex.test(prsn) === true) {
+                    return true;
+                } else {
+                    false;
+                }
+            },
+            getName: function () {
+                    
+                }
+            };
+        },
+    
 
     /**
      * Create a color object that's got six different properties: incrRed(amount), 
