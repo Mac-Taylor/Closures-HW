@@ -75,21 +75,27 @@ module.exports = {
      */
     user: function () {
 
+        let person = 'str';
+
         return {
             setName: function (prsn) {
                 let regex = /^[A-Za-z ]+$/;
-                if (regex.test(prsn) === true) {
-                    return true;
+                if (regex.test(prsn) !== true) {
+                    return false;
                 } else {
-                    false;
+                    person = prsn;
+                    return true;
                 }
             },
             getName: function () {
-                    
-                }
-            };
-        },
-    
+                // "if setName returns true, I want to return the 'prsn'
+                // string that allowed it to pass"
+                return person;
+            },
+        };
+
+    },
+
 
     /**
      * Create a color object that's got six different properties: incrRed(amount), 
@@ -155,5 +161,28 @@ module.exports = {
      *  console.log(pocket.trinkets()); // 1
      */
     pocket: function (start) { },
+
+        /**
+     * Create an account that keeps track of a balance and records all
+     * transactions to and from the account. You shouldn't be able to 
+     * change the balance without recording a transaction. Each transaction
+     * should be represented as an object like:
+     * 
+     *      { type: 'withdraw', amount: 15, success: true }
+     * 
+     * You also shouldn't be able to withdraw money that you don't have. If
+     * you try to do that, the transaction should still be recorded but
+     * 'success' should be set to false.
+     * 
+     * let acct = hw.account(200);
+     * acct.withdraw(100);  // successful withdraw
+     * acct.withdraw(20);   // successful withdraw
+     * 
+     * acct.deposit(25);    // successful deposit
+     * acct.withdraw(200);  // unsuccessful withdraw (not enough funds)
+     * 
+     * acct.transactions(); // returns array of all transaction objects
+     */
+    account: function (initial) {},
 };
 

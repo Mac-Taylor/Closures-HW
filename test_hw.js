@@ -29,6 +29,10 @@ test('amount', function (t) {
 test('user', function (t) {
     let person = hw.user();
     t.deepEqual(person.setName('Mac Taylor'), true);
+    t.deepEqual(person.setName('Mac123'), false);
     t.deepEqual(person.getName(), 'Mac Taylor');
+    t.deepEqual(person.setName('what^'), false);
+    t.deepEqual(person.setName('Ronald Macdonald'), true);
+    t.deepEqual(person.getName(), 'Ronald Macdonald');
 });
 
