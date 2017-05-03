@@ -1,3 +1,6 @@
+// MAC, BE MINDFUL OF WHICH FUNCTIONS STORE THE DATA FOR THIS ASSIGNMENT
+// OR ELSE YOU ARE GONNA HAVE A BAD TIME!
+
 module.exports = {
     /**
      * Return an object with a next() property. Each time the next function
@@ -6,7 +9,19 @@ module.exports = {
      *  var c = hw.counter(2);
      *  c.next(); // return 3
      */
-    counter: function (start) {},
+
+    counter: function (start) { // start is your input, which is a NUMBER
+
+
+
+        return {
+            next: function () {
+               start++;
+               return start;
+            }
+        };
+    },
+
 
     /**
      * Return a function that accepts the value to multiply `val` by.
@@ -103,3 +118,4 @@ module.exports = {
      */
     pocket: function (start) {},
 };
+
