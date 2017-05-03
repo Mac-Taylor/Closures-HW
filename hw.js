@@ -12,15 +12,13 @@ module.exports = {
 
     counter: function (start) { // start is your input, which is a NUMBER
 
-
-
         return {
             next: function () {
-               start++;
-               return start;
+                start++;
+                return start;
             }
         };
-    },
+    }, // WALKED THROUGH THIS ONE WITH LUKE, DEFINITELY DO NOT MESS WITH IT.
 
 
     /**
@@ -28,7 +26,15 @@ module.exports = {
      *
      *  multiply(3)(5); // return 15
      */
-    multiply: function (val) {},
+    multiply: function (val) {
+
+        return {
+            times: function (a) {
+                val = val * a;
+                return val;
+            }
+        }
+    }, // RIGHT NOW THIS ONE SEEMS TO WORK. DO NOT MESS WITH IT FOR NOW.
 
     /**
      * Return an object with a discount() property. The discount property should
@@ -39,7 +45,17 @@ module.exports = {
      *  tot.discount(0.50); // return 10
      *  tot.discount(0.20); // return 16
      */
-    total: function (amount) {},
+    total: function (amount) {
+
+        let amnt = amount;
+
+        return {
+            discount: function (nmbr) {
+                amnt = amnt * nmbr;
+                return amnt;
+            },
+        }
+    },
 
     /**
      * Set the name of a user. Only valid names can be provided. A `valid` name is
@@ -51,7 +67,7 @@ module.exports = {
      *  user.setName('123 hi'); // return false
      *  user.getName(); // return 'Francis Bacon'
      */
-    user: function () {},
+    user: function () { },
 
     /**
      * Create a color object that's got six different properties: incrRed(amount), 
@@ -69,7 +85,7 @@ module.exports = {
      *  color.incrBlue(-9);
      *  console.log(color.red(), color.green(), color.blue()); // 162, 230, 9
      */
-    color: function (r, g, b) {},
+    color: function (r, g, b) { },
 
     /**
      * Track the number of lives remaining in a game.
@@ -82,7 +98,7 @@ module.exports = {
      *  lives.restart();
      *  console.log(lives.left()); // 5
      */
-    lives: function (start) {},
+    lives: function (start) { },
 
     /**
      * Return a string that contains the 'message id' before the message text.
@@ -94,7 +110,7 @@ module.exports = {
      *  msg = logger.record('second message');
      *  console.log(msg); // '[2] second message'
      */
-    messages: function () {},
+    messages: function () { },
 
     /**
      * Create a pocket object that can contain COINS and TRINKETS. The pocket
@@ -116,6 +132,6 @@ module.exports = {
      *  console.log(pocket.coins()); // 35
      *  console.log(pocket.trinkets()); // 1
      */
-    pocket: function (start) {},
+    pocket: function (start) { },
 };
 
