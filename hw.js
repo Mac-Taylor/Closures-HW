@@ -113,7 +113,7 @@ module.exports = {
      *  color.incrBlue(-9);
      *  console.log(color.red(), color.green(), color.blue()); // 162, 230, 9
      */
-    color: function (r, g, b) { 
+    color: function (r, g, b) {
 
         return {
             incrRed: function (amount) {
@@ -142,11 +142,20 @@ module.exports = {
      *  lives.restart();
      *  console.log(lives.left()); // 5
      */
-    lives: function (start) { 
-        
-        start = start - 1;
-        return start;
+    lives: function (start) {
 
+        return {
+            died: function () {
+                start = start - 1;
+                return start;
+            },
+
+            restart: function () {
+                start = start;
+                return start; // need help with the restart portion
+            },
+
+        };
     },
 
     /**
@@ -159,6 +168,7 @@ module.exports = {
      *  msg = logger.record('second message');
      *  console.log(msg); // '[2] second message'
      */
+
     messages: function () { },
 
     /**
@@ -183,27 +193,27 @@ module.exports = {
      */
     pocket: function (start) { },
 
-        /**
-     * Create an account that keeps track of a balance and records all
-     * transactions to and from the account. You shouldn't be able to 
-     * change the balance without recording a transaction. Each transaction
-     * should be represented as an object like:
-     * 
-     *      { type: 'withdraw', amount: 15, success: true }
-     * 
-     * You also shouldn't be able to withdraw money that you don't have. If
-     * you try to do that, the transaction should still be recorded but
-     * 'success' should be set to false.
-     * 
-     * let acct = hw.account(200);
-     * acct.withdraw(100);  // successful withdraw
-     * acct.withdraw(20);   // successful withdraw
-     * 
-     * acct.deposit(25);    // successful deposit
-     * acct.withdraw(200);  // unsuccessful withdraw (not enough funds)
-     * 
-     * acct.transactions(); // returns array of all transaction objects
-     */
-    account: function (initial) {},
+    /**
+ * Create an account that keeps track of a balance and records all
+ * transactions to and from the account. You shouldn't be able to 
+ * change the balance without recording a transaction. Each transaction
+ * should be represented as an object like:
+ * 
+ *      { type: 'withdraw', amount: 15, success: true }
+ * 
+ * You also shouldn't be able to withdraw money that you don't have. If
+ * you try to do that, the transaction should still be recorded but
+ * 'success' should be set to false.
+ * 
+ * let acct = hw.account(200);
+ * acct.withdraw(100);  // successful withdraw
+ * acct.withdraw(20);   // successful withdraw
+ * 
+ * acct.deposit(25);    // successful deposit
+ * acct.withdraw(200);  // unsuccessful withdraw (not enough funds)
+ * 
+ * acct.transactions(); // returns array of all transaction objects
+ */
+    account: function (initial) { },
 };
 

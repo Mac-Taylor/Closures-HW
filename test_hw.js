@@ -42,9 +42,10 @@ test('user', function (t) {
 
 
 test('lives', function (t) {
-    let count = hw.lives(6);
-    t.deepEqual(count.lives());
-    t.deepEqual(count.lives());
-    t.deepEqual(count.lives());
+    let number = hw.lives(6);
+    t.deepEqual(number.died(), 5);
+    t.deepEqual(number.died(), 4);
+    t.deepEqual(number.died(), 3); // died() working right now
+    t.deepEqual(number.restart(), 6);
 })
 
