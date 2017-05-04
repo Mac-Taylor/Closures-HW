@@ -94,7 +94,7 @@ module.exports = {
             },
         };
 
-    },
+    }, // GOT THIS ONE WORKING, DON'T MESS WITH IT FOR NOW 
 
 
     /**
@@ -113,7 +113,23 @@ module.exports = {
      *  color.incrBlue(-9);
      *  console.log(color.red(), color.green(), color.blue()); // 162, 230, 9
      */
-    color: function (r, g, b) { },
+    color: function (r, g, b) { 
+
+        return {
+            incrRed: function (amount) {
+
+            },
+            incrGreen: function (amount) {
+
+            },
+            incrBlue: function (amount) {
+
+            }
+        }
+
+
+
+    },
 
     /**
      * Track the number of lives remaining in a game.
@@ -126,7 +142,12 @@ module.exports = {
      *  lives.restart();
      *  console.log(lives.left()); // 5
      */
-    lives: function (start) { },
+    lives: function (start) { 
+        
+        start = start - 1;
+        return start;
+
+    },
 
     /**
      * Return a string that contains the 'message id' before the message text.

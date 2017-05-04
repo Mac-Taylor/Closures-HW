@@ -36,3 +36,15 @@ test('user', function (t) {
     t.deepEqual(person.getName(), 'Ronald Macdonald');
 });
 
+
+
+
+
+
+test('lives', function (t) {
+    let count = hw.lives(6);
+    t.deepEqual(count.lives());
+    t.deepEqual(count.lives());
+    t.deepEqual(count.lives());
+})
+
