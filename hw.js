@@ -124,11 +124,17 @@ module.exports = {
             },
             incrBlue: function (amount) {
 
+            },
+            red: function () {
+                return r;
+            },
+            green: function () {
+                return g;
+            },
+            blue: function () {
+                return b;
             }
         }
-
-
-
     },
 
     /**
